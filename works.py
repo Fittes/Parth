@@ -7,7 +7,7 @@
 #title==user(FULL)
     all_users = []
 
-    return all_users
+   # return all_users
 Для начала работы, установим 3 библиотеки Python.
 
 pip install beautifulsoup4
@@ -24,11 +24,11 @@ pip install pandas
 Попробуем получить структуру html-кода нашего сайта.
 Давайте подключим наши новые библиотеки.
 
-users= get_user('')
+#users= get_user('')
 
- all_users==views
+ #all_users==views
  
-for p in all_p:
+#for p in all_p:
  text = (p.text.strip() if len(p.text) >= 0 else "")
  if 'K' in text:
  text = str(float(text[:-1]) * 1000)
@@ -38,14 +38,14 @@ views.append(text)
 Давайте спарсим теперь каждую ссылку на вакансию и ее описание.
 Описание находится в теге p с классом overflow. Ссылка находится все в том же элементе a.
 
-all_users==date
+#all_users==date
 for p in all_p:
 text = (str(p).strip()[
 str(p).strip().rfind('=') + 2:str(p).strip().rfind('=') + 19] if len(str(p)) >= 0 else "")
 date.append(text)
 Давайте соберем всю полученную информацию по страничке и запишем в удобный формат — json.
 
-def build_json(result_file_path = 'result_test_parser.json'):
+#def build_json(result_file_path = 'result_test_parser.json'):
     result = dict()
     result['data'] = data
     result['views'] = views
@@ -72,10 +72,10 @@ res_dict = build_json()
 
 работаем с данными 
 
-df_data = []
+#df_data = []
 for i in range(len(res_dict['data'])):
     df_data.append([res_dict['data'][i], res_dict['views'][i], res_dict['users'][i], res_dict['title'][i]])
     
    ####так же никуда без импорта панды
-df = pd.DataFrame(data=df_data, columns=['Дата', 'Просмотры', 'Пользователи', 'Тема'])
+#df = pd.DataFrame(data=df_data, columns=['Дата', 'Просмотры', 'Пользователи', 'Тема'])
 и смортим на результат
